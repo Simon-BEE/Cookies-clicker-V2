@@ -7,16 +7,19 @@
 	
 </head>
 <body>
-    <h1>Cookies Clicker</h1>
-    <h2>by <span>Simon</span></h2>
-	<p id="clic" onclick="clic()"><img src="assets/img/cookies.png" alt="Cookie"></p>
-	<div id="affichage">0</div>
-    <div id="boutons">
-    	<button id="multiplier" onclick="augmenterMultiplicateur()" disabled>Multiplicateur x1 (-50 clics)</button>
-    	<button id="autoclick" onclick="achatAutoclick()" disabled>Autoclick (500 clics)</button>
-    	<button id="bonus" onclick="achatBonus()" disabled>BONUS (5000 clics)</button>
+    <p id="theme" onclick="changeBg()">Change de thème</p>
+    <div id="main">
+        <h1>Cookies Clicker</h1>
+        <h2>by <span>Simon</span></h2>
+        <p id="autoclick-img"><img src="assets/img/cursor.png"></p>
+    	<p id="clic" onclick="clic()"><img src="assets/img/cookies.png" alt="Cookie"></p>
+    	<div id="affichage">0</div>
+        <div id="boutons">
+        	<button id="multiplier" onclick="augmenterMultiplicateur()" disabled>Multiplicateur x1 (-50 clics)</button>
+        	<button id="autoclick" onclick="achatAutoclick()" disabled>Autoclick (500 clics)</button>
+        	<button id="bonus" onclick="achatBonus()" disabled>BONUS (5000 clics)</button>
+        </div>
     </div>
-
 
 <script type="text/javascript" src="assets/js/script.js"></script>
 </body>

@@ -4,6 +4,7 @@ var buttonMultiplier = document.getElementById("multiplier");
 var buttonAutoClic = document.getElementById("autoclick");
 var buttonBonus = document.getElementById("bonus");
 var div = document.getElementById("affichage") ;
+var autoclickImg = document.getElementById('autoclick-img');
 
 // variables
 var score = 0;
@@ -13,6 +14,8 @@ var autoclick = 0; /* autoclick arreter 0 sinon 1 */
 var timer;
 var bonusActif = 1;
 var nbSec = 30; /* durée du timer en s*/
+var background = 1;
+var nbAuto = 1000;
 
 /**
 * ajoute (multiplicateur * bonusActif) au score quand elle est appeler
@@ -51,15 +54,19 @@ function augmenterMultiplicateur() {
 */
 function achatAutoclick(){
 	if (score >= 500){
-		//si pas deja d'autoclic
-		if(autoclick === 0){
-			autoclick = 1;
-			buttonAutoClic.setAttribute("disabled", "");
-			score-=500;
-			div.innerHTML = score;
+		autoclick = 1;
+		score-=500;
+		div.innerHTML = score;
 			
-			intervalIDclic = setInterval(clic, 1000);
+		intervalIDclic = setInterval(clic, nbAuto);
+		nbAuto - 200;
+		autoclickImg.style.display = 'block';
+		clone = autoclickImg.cloneNode(true);
+		autoclickImg.appendChild(clone);
+		if (nbAuto <= 0) {
+			nbAuto += 200;
 		}
+		
 	}
 }
 
@@ -122,12 +129,19 @@ function verifScore(){
 	}else{
 		buttonBonus.setAttribute("disabled", "");
 	}
-	if (score >= 500 && autoclick === 0){
+	if (score >= 500){
 		buttonAutoClic.removeAttribute("disabled");
 	}else{
 		buttonAutoClic.setAttribute("disabled", "");
 	}
-	
 }
 
-
+function changeBg () {
+	if (background === 1) {
+		document.body.style.background = "url('assets/img/backg2.jpg')";
+		background--;
+	} else {
+		document.body.style.background = "url('assets/img/backg.jpg')";
+		background++;
+	}
+}
