@@ -92,3 +92,7 @@ button[disabled] {
     font-family: calibri;
     margin-top: -100px;
 }
+
+#clic {
+    cursor: url(../img/teeth.png), auto;
+}
